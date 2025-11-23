@@ -1,10 +1,8 @@
-'use client';
+//'use client';
 //import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./app.css";
-import AuthenticatorWrapper from "./authWrapper";
 import "@aws-amplify/ui-react/styles.css";
-import outputs from "@/amplify_outputs.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>      
-        <AuthenticatorWrapper>
-          {children}
-        </AuthenticatorWrapper>
+        {children}
       </body>
     </html>
   );
