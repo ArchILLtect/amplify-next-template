@@ -7,15 +7,15 @@ body {
     width: 100vw;
     justify-content: center;
     align-items: center;
-  }
-  
-  main {
+}
+
+main {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-  }
-  
-  button {
+}
+
+button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
@@ -26,16 +26,16 @@ body {
     cursor: pointer;
     transition: border-color 0.25s;
     color: white;
-  }
-  button:hover {
+}
+button:hover {
     border-color: #646cff;
-  }
-  button:focus,
-  button:focus-visible {
+}
+button:focus,
+button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
-  }
-  
-  ul {
+}
+
+ul {
     padding-inline-start: 0;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -48,18 +48,47 @@ body {
     background-color: black;
     border-radius: 8px;
     overflow: auto;
-  }
-  
-  li {
+}
+
+li {
     background-color: white;
     padding: 8px;
-  }
-  
-  li:hover {
+}
+
+li:hover {
     background: #dadbf9;
-  }
-  
-  a {
+}
+
+a {
     font-weight: 800;
     text-decoration: none;
-  }
+}
+
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 4rem; /* just to give it some space */
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid lightgray;
+    border-top: 4px solid blue;
+    animation-name: nickSpin;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    margin: 20px auto;
+}
+
+@keyframes nickSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
