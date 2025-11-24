@@ -13,7 +13,7 @@ export default async function LocationFinderServer() {
   const long = JSON.parse(JSON.stringify(data.Longitude));
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: '1rem', border: '1px solid gray', borderRadius: '1rem', backgroundColor: '#814bbf', color: '#faf9f7'}}>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: '1rem', border: '1px solid gray', borderRadius: '1rem', backgroundColor: '#814bbf', color: '#faf9f7', boxShadow: '1px 1px 20px fuchsia', borderColor: 'purple' }}>
       <h2 style={{margin: 0, fontWeight: '500'}}>Server Component</h2>
       <h3 style={{marginTop: '1rem', marginBottom: 0, fontWeight: '500'}}>Location:</h3>
       {loading ? (
@@ -22,7 +22,7 @@ export default async function LocationFinderServer() {
         </div>
       ) : (
         <>
-          <li style={{margin: '0 1rem 1rem 1rem', listStyleType: 'none', color: 'black'}}>{city}, {state}</li>
+          <li style={{margin: '0 1rem 1rem 1rem', listStyleType: 'none', color: 'black', backgroundColor: 'lightcoral'}}>{city}, {state}</li>
           <Forcast lat={lat} long={long} />
         </>
       )}
