@@ -8,8 +8,6 @@ export default function LocationFinderClient({ lat, long }: { lat: string; long:
   const [weatherInfo, setWeatherInfo] = useState({Temperature: "", CloudCover: "", WindDirection: "", WindSpeed: ""});
 
   const fetchLocationData = async () => {
-    let lat = "34.05"; // Default to Los Angeles
-    let long = "-118.25";
     const response = await fetch(`https://www.7timer.info/bin/api.pl?lon=${long}&lat=${lat}&product=astro&output=json`);
     const data = await response.json();
 
