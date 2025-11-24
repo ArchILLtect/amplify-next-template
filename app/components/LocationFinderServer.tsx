@@ -1,17 +1,31 @@
-
+import { Spinner } from "./Spinner";
+import '../page.module.css'
+import Forcast from "./Forcast";
 
 export default async function LocationFinderServer() {
 
-    // Example: Fetch location data from an API
-    const response = await fetch('https://apip.cc/json')
-    const data = await response.json();
-    const city = JSON.parse(JSON.stringify(data.City));
-    const state = JSON.parse(JSON.stringify(data.RegionName));
+  let loading = true;
+  const response = await fetch('https://apip.cc/json')
+  const data = await response.json().finally(() => { loading = false });
+  const city = JSON.parse(JSON.stringify(data.City));
+  const state = JSON.parse(JSON.stringify(data.RegionName));
+  const lat = JSON.parse(JSON.stringify(data.Latitude));
+  const long = JSON.parse(JSON.stringify(data.Longitude));
 
-    return (
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: '1rem', border: '1px solid gray', borderRadius: '1rem', backgroundColor: '#814bbf', color: '#faf9f7'}}>
+      <h2 style={{margin: 0, fontWeight: '500'}}>Server Component</h2>
+      <h3 style={{marginTop: '1rem', marginBottom: 0, fontWeight: '500'}}>Location:</h3>
+      {loading ? (
+        <div>
+          <Spinner />
+        </div>
+      ) : (
         <>
-            <h1>Location Finder - Server Component</h1>
-            <h2>{city}, {state}</h2>
+          <li style={{margin: '0 1rem 1rem 1rem', listStyleType: 'none', color: 'black'}}>{city}, {state}</li>
+          <Forcast lat={lat} long={long} />
         </>
-    )
+      )}
+    </div>
+  )
 }
